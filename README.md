@@ -11,11 +11,11 @@ The function `colorbrewer` returns the colors corresponding to a given [colorbre
 colorbrewer Blues, n(4)
 return list
 
-macros:
-            r(colors1) : "239 243 255"
-            r(colors2) : "189 215 231"
-            r(colors3) : "107 174 214"
-             r(colors) : ""239 243 255" "189 215 231" "107 174 214" "033 113 181""
+*macros:
+*            r(colors1) : "239 243 255"
+*            r(colors2) : "189 215 231"
+*            r(colors3) : "107 174 214"
+*             r(colors) : ""239 243 255" "189 215 231" "107 174 214" "033 113 181""
 ````
 
 ## Palettes
