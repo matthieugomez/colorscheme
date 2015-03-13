@@ -5,7 +5,7 @@
 
 ## Usage 
 
-The function `colorbrewer` returns the colors corresponding to a given [colorbrewer](http://colorbrewer.org/) palette:
+The function `colorbrewer` returns the RGB colors corresponding to a given [colorbrewer](http://colorbrewer.org/) palette:
 
 ````
 . colorbrewer Blues, n(4)
