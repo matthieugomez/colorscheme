@@ -8,9 +8,8 @@
 The function `colorbrewer` returns the colors corresponding to a given [colorbrewer](http://colorbrewer.org/) palette:
 
 ````
-colorbrewer Blues, n(4)
-return list
-
+. colorbrewer Blues, n(4)
+. return list
 * macros:
 *            r(colors1) : "239 243 255"
 *            r(colors2) : "189 215 231"
