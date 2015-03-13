@@ -1,5 +1,5 @@
 
-# Stata-colorbrewer
+# Color brewer for Stata
 
 
 
