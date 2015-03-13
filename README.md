@@ -1,17 +1,16 @@
 
 # Stata-colorbrewer
 
-This product includes color specifications and designs developed by Cynthia Brewer
-(http://colorbrewer.org/)
+This product includes color specifications and designs developed by Cynthia Brewer : http://colorbrewer.org/
 
 
 # Usage 
 
 The function `colorbrewer` returns the colors corresponding to a given palette:
 
-	```
-	colorbrewer Blues, n(4)
-	```
+````
+colorbrewer Blues, n(4)
+````
 
 # Palettes
 
