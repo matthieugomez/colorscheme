@@ -113,7 +113,6 @@ else if "`theme'" == "Accent"{
 		local color7 "191 091 023`brightness'"
 		local color8 "102 102 102`brightness'"
 	}
-
 }
 else if "`theme'" == "Blues"{
 	if `n' == 3{
@@ -650,7 +649,6 @@ else if "`theme'" == "Oranges"{
 		local color8 "166 054 003`brightness'"
 		local color9 "127 039 004`brightness'"
 	}
-
 }
 else if "`theme'" == "OrRd"{
 	if `n' == 3{
@@ -1077,7 +1075,6 @@ else if "`theme'" == "PRGn"{
 		local color10 "027 120 055`brightness'"
 		local color11 "000 068 027`brightness'"
 	}
-
 }
 else if "`theme'" == "PuBu"{
 	if `n' == 3{
@@ -1136,7 +1133,6 @@ else if "`theme'" == "PuBu"{
 		local color8 "004 090 141`brightness'"
 		local color9 "002 056 088`brightness'"
 	}
-
 }
 else if "`theme'" == "PuBuGn"{
 	if `n' == 3{
@@ -1394,7 +1390,6 @@ else if "`theme'" == "Purples"{
 		local color8 "084 039 143`brightness'"
 		local color9 "063 000 125`brightness'"
 	}
-
 }
 else if "`theme'" == "RdBu"{
 	if `n' == 3{
@@ -1478,7 +1473,6 @@ else if "`theme'" == "RdBu"{
 		local color10 "033 102 172`brightness'"
 		local color11 "005 048 097`brightness'"
 	}
-
 }
 else if "`theme'" == "RdGy"{
 	if `n' == 3{
@@ -1562,7 +1556,6 @@ else if "`theme'" == "RdGy"{
 		local color10 "077 077 077`brightness'"
 		local color11 "026 026 026`brightness'"
 	}
-
 }
 else if "`theme'" == "RdPu"{
 	if `n' == 3{
@@ -1621,7 +1614,6 @@ else if "`theme'" == "RdPu"{
 		local color8 "122 001 119`brightness'"
 		local color9 "073 000 106`brightness'"
 	}
-
 }
 else if "`theme'" == "Reds"{
 	if `n' == 3{
@@ -1680,7 +1672,6 @@ else if "`theme'" == "Reds"{
 		local color8 "165 015 021`brightness'"
 		local color9 "103 000 013`brightness'"
 	}
-
 }
 else if "`theme'" == "RdYlBu"{
 	if `n' == 3{
@@ -1764,7 +1755,6 @@ else if "`theme'" == "RdYlBu"{
 		local color10 "069 117 180`brightness'"
 		local color11 "049 054 149`brightness'"
 	}
-
 }
 else if "`theme'" == "RdYlGn"{
 	if `n' == 3{
@@ -1848,7 +1838,6 @@ else if "`theme'" == "RdYlGn"{
 		local color10 "026 152 080`brightness'"
 		local color11 "000 104 055`brightness'"
 	}
-
 }
 else if "`theme'" == "Set1"{
 	if `n' == 3{
@@ -1907,7 +1896,6 @@ else if "`theme'" == "Set1"{
 		local color8 "247 129 191`brightness'"
 		local color9 "153 153 153`brightness'"
 	}
-
 }
 else if "`theme'" == "Set2"{
 	if `n' == 3{
@@ -1955,7 +1943,6 @@ else if "`theme'" == "Set2"{
 		local color7 "229 196 148`brightness'"
 		local color8 "179 179 179`brightness'"
 	}
-
 }
 else if "`theme'" == "Set3"{
 	if `n' == 3{
@@ -2136,7 +2123,6 @@ else if "`theme'" == "Spectral"{
 		local color10 "050 136 189`brightness'"
 		local color11 "094 079 162`brightness'"
 	}
-
 }
 else if "`theme'" == "YlGn"{
 	if `n' == 3{
@@ -2195,7 +2181,6 @@ else if "`theme'" == "YlGn"{
 		local color8 "000 104 055`brightness'"
 		local color9 "000 069 041`brightness'"
 	}
-
 }
 else if "`theme'" == "YlGnBu"{
 	if `n' == 3{
@@ -2254,7 +2239,6 @@ else if "`theme'" == "YlGnBu"{
 		local color8 "037 052 148`brightness'"
 		local color9 "008 029 088`brightness'"
 	}
-
 }
 else if "`theme'" == "YlOrBr"{
 	if `n' == 3{
@@ -2313,7 +2297,6 @@ else if "`theme'" == "YlOrBr"{
 		local color8 "153 052 004`brightness'"
 		local color9 "102 037 006`brightness'"
 	}
-
 }
 else if "`theme'" == "YlOrRd"{
 	if `n' == 3{
