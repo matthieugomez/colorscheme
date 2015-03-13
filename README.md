@@ -1,18 +1,17 @@
 
 # Stata-colorbrewer
 
-This product includes color specifications and designs developed by Cynthia Brewer : http://colorbrewer.org/
 
 
-# Usage 
+## Usage 
 
-The function `colorbrewer` returns the colors corresponding to a given palette:
+The function `colorbrewer` returns the colors corresponding to a given [colorbrewer](http://colorbrewer.org/) palette:
 
 ````
 colorbrewer Blues, n(4)
 ````
 
-# Palettes
+## Palettes
 
 There are 3 types of palettes, sequential, diverging, and qualitative.
 
@@ -45,7 +44,8 @@ to representing nominal or categorical data. The qualitative palettes (with thei
 	Set3 12
 
 
-# Copyright
+## Copyright
+This product includes color specifications and designs developed by Cynthia Brewer : http://colorbrewer.org/
 
 ColorBrewer is Copyright (c) 2002 Cynthia Brewer, Mark Harrower, and The Pennsylvania State
 University. All rights reserved.
