@@ -45,6 +45,7 @@ to representing nominal or categorical data. The qualitative palettes (with thei
 	Set3 12
 
 
+# Copyright
 
 ColorBrewer is Copyright (c) 2002 Cynthia Brewer, Mark Harrower, and The Pennsylvania State
 University. All rights reserved.

@@ -1,3 +1,8 @@
+/***************************************************************************************************
+ColorBrewer is Copyright (c) 2002 Cynthia Brewer, Mark Harrower, and The Pennsylvania State
+University. All rights reserved.
+***************************************************************************************************/
+
 program colorbrewer, rclass
 
 syntax anything(name=theme)[, n(integer 3) solid(real 1)]
