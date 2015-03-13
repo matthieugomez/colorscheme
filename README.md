@@ -12,7 +12,7 @@ colorbrewer Blues, n(4)
 
 # Palettes
 
-The palettes can be found on (http://colorbrewer2.org/)[colorbrewer 2.0].
+The palettes can be found on [colorbrewer 2.0](http://colorbrewer2.org/).
 There are 3 types of palettes, sequential, diverging, and qualitative.
 
 - Sequential palettes are suited to ordered data that progress from low to high. Lightness steps
