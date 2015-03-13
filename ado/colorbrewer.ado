@@ -2645,7 +2645,7 @@ return local colors `"`colors'"'
 local i = `n'
 while `i' >0{
 	local i = `i' - 1
-	return local colors`i' `color`i''
+	return local color`i' `color`i''
 }
 
 end
