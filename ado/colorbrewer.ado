@@ -2631,7 +2631,6 @@ else if "`theme'" == "YlOrRd"{
 local i = 1
 
 while `i' <= `n'{
-	return local color`i' `color`i''
 	if `i' == 1{
 		local colors `""`color`i''""'
 	}
@@ -2642,6 +2641,12 @@ while `i' <= `n'{
 	local i = `i'+1
 }
 return local colors `"`colors'"'
+
+local i = `n'
+while `i' >0{
+	local i = `i' - 1
+	return local colors`i' `color`i''
+}
 
 end
 
