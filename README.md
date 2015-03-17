@@ -23,9 +23,9 @@ One can use the returned macros in a graph command:
 ```
 sysuse nlsw88.dta
 colorbrewer Set2, n(3) 
-twoway scatter wage tenure if race == 1, mcolor("`=r(color1)'")  msize(0.5) || ///
-scatter wage tenure if race == 2, mcolor("`=r(color2)'")  msize(0.5) || ///
-scatter wage tenure if race == 3, mcolor("`=r(color3)'") msize(0.5) 
+twoway scatter wage tenure if race == 1, mcolor("`=r(color1)'")  || ///
+scatter wage tenure if race == 2, mcolor("`=r(color2)'")  || ///
+scatter wage tenure if race == 3, mcolor("`=r(color3)'") 
 ```
 
 ## Palettes
