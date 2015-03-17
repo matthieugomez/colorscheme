@@ -11,6 +11,8 @@ syntax anything(name=theme)[, n(integer 3) solid(real 1)]
 /***************************************************************************************************
 list of themes and colors
 ***************************************************************************************************/
+
+/* ggplot */
 if "`theme'" == "ggplot"{
 	if `n' == 2{
 		local color1 "248 118 109"
@@ -62,6 +64,7 @@ if "`theme'" == "ggplot"{
 		local color8 "255 097 204"
 	}
 }
+/* Color Brewer */
 else if "`theme'" == "Accent"{
 	if `n' == 3{
 		local color1 "127 201 127"
