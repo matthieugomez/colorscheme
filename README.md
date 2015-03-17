@@ -18,12 +18,14 @@ macros
             r(colors) : ""239 243 255" "189 215 231" "107 174 214" "033 113 181""
 ```
 
-These colors can then be used in any graph command:
+One can use the returned macros in a graph command:
 
 ```
 sysuse nlsw88.dta
 colorbrewer Set2, n(3) 
-twoway scatter wage tenure if race == 1, mcolor("`=r(color1)'")  msize(0.5) || scatter wage tenure if race == 2, mcolor("`=r(color2)'")  msize(0.5) || scatter wage tenure if race == 3, mcolor("`=r(color3)'") msize(0.5) 
+twoway scatter wage tenure if race == 1, mcolor("`=r(color1)'")  msize(0.5) || ///
+scatter wage tenure if race == 2, mcolor("`=r(color2)'")  msize(0.5) || ///
+scatter wage tenure if race == 3, mcolor("`=r(color3)'") msize(0.5) 
 ```
 
 ## Palettes
