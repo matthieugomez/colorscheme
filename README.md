@@ -8,7 +8,21 @@
 The function `colorbrewer` returns the RGB colors corresponding to a given [colorbrewer](http://colorbrewer.org/) palette:
 
 ```
-. colorbrewer Blues, n(4)
+. colorbrewer 4, palette(Blues)
+. return list
+macros
+			r(color1) : "239 243 255"
+            r(color2) : "189 215 231"
+            r(color3) : "107 174 214"
+            r(color4) : "033 113 181"
+            r(colors) : ""239 243 255" "189 215 231" "107 174 214" "033 113 181""
+```
+
+
+The function `colorwheel` returns the RGB colors corresponding to ggplot colors
+
+```
+. colorbrewer 4, palette(Blues)
 . return list
 macros
 			r(color1) : "239 243 255"
@@ -27,6 +41,8 @@ twoway scatter wage tenure if race == 1, mcolor("`=r(color1)'")  || ///
 scatter wage tenure if race == 2, mcolor("`=r(color2)'")  || ///
 scatter wage tenure if race == 3, mcolor("`=r(color3)'") 
 ```
+
+
 
 ## Palettes
 

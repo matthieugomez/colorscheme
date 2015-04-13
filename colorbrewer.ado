@@ -5,25 +5,15 @@ University. All rights reserved.
 
 program colorbrewer, rclass
 
-syntax anything(name=theme)[, n(integer 3) solid(real 1)]
+syntax anything(name = n), palette(string) [solid(real 1)]
 
 
 /***************************************************************************************************
 list of themes and colors
 ***************************************************************************************************/
 
-/* ggplot */
-if "`theme'" == "ggplot"{
-	local hstart 15
-	local hend 375
-	forvalues i = 1/`n'{
-		local hue = `hstart' + (`i'-1) * (`hend'-`hstart')/ `n'
-		hcltorgb, hue(`hue') chroma(100) luma(65) 
-		local color`i' `=r(r)' `=r(g)' `=r(b)'
-	}
-}
 /* Color Brewer */
-else if "`theme'" == "Accent"{
+if "`palette'" == "Accent"{
 	if `n' == 3{
 		local color1 "127 201 127"
 		local color2 "190 174 212"
@@ -70,7 +60,7 @@ else if "`theme'" == "Accent"{
 		local color8 "102 102 102"
 	}
 }
-else if "`theme'" == "Blues"{
+else if "`palette'" == "Blues"{
 	if `n' == 3{
 		local color1 "222 235 247"
 		local color2 "158 202 225"
@@ -128,7 +118,7 @@ else if "`theme'" == "Blues"{
 		local color9 "008 048 107"
 	}
 }
-else if "`theme'" == "BrBG"{
+else if "`palette'" == "BrBG"{
 	if `n' == 3{
 		local color1 "216 179 101"
 		local color2 "245 245 245"
@@ -211,7 +201,7 @@ else if "`theme'" == "BrBG"{
 		local color11 "000 060 048"
 	}
 }
-else if "`theme'" == "BuGn"{
+else if "`palette'" == "BuGn"{
 	if `n' == 3{ 
 		local color1 "229 245 249"
 		local color2 "153 216 201"
@@ -269,7 +259,7 @@ else if "`theme'" == "BuGn"{
 		local color9 "000 068 027"
 	}
 }
-else if "`theme'" == "BuPu"{
+else if "`palette'" == "BuPu"{
 	if `n' == 3{
 		local color1 "224 236 244"
 		local color2 "158 188 218"
@@ -327,7 +317,7 @@ else if "`theme'" == "BuPu"{
 		local color9 "077 000 075"
 	}
 }
-else if "`theme'" == "Dark2"{
+else if "`palette'" == "Dark2"{
 	if `n' == 3{
 		local color1 "027 158 119"
 		local color2 "217 095 002"
@@ -374,7 +364,7 @@ else if "`theme'" == "Dark2"{
 		local color8 "102 102 102"
 	}
 }
-else if "`theme'" == "GnBu"{
+else if "`palette'" == "GnBu"{
 	if `n' == 3{
 		local color1 "224 243 219"
 		local color2 "168 221 181"
@@ -432,7 +422,7 @@ else if "`theme'" == "GnBu"{
 		local color9 "008 064 129"
 	}
 }
-else if "`theme'" == "Greens"{
+else if "`palette'" == "Greens"{
 	if `n' == 3{
 		local color1 "229 245 224"
 		local color2 "161 217 155"
@@ -490,7 +480,7 @@ else if "`theme'" == "Greens"{
 		local color9 "000 068 027"
 	}
 }
-else if "`theme'" == "Greys"{
+else if "`palette'" == "Greys"{
 	if `n' == 3{
 		local color1 "240 240 240"
 		local color2 "189 189 189"
@@ -548,7 +538,7 @@ else if "`theme'" == "Greys"{
 		local color9 "000 000 000"
 	}
 }
-else if "`theme'" == "Oranges"{
+else if "`palette'" == "Oranges"{
 	if `n' == 3{
 		local color1 "254 230 206"
 		local color2 "253 174 107"
@@ -606,7 +596,7 @@ else if "`theme'" == "Oranges"{
 		local color9 "127 039 004"
 	}
 }
-else if "`theme'" == "OrRd"{
+else if "`palette'" == "OrRd"{
 	if `n' == 3{
 		local color1 "254 232 200"
 		local color2 "253 187 132"
@@ -664,7 +654,7 @@ else if "`theme'" == "OrRd"{
 		local color9 "127 000 000"
 	}
 }
-else if "`theme'" == "Paired"{
+else if "`palette'" == "Paired"{
 	if `n' == 3{
 		local color1 "166 206 227"
 		local color2 "031 120 180"
@@ -761,7 +751,7 @@ else if "`theme'" == "Paired"{
 		local color12 "177 089 040"
 	}
 }
-else if "`theme'" == "Pastel1"{
+else if "`palette'" == "Pastel1"{
 	if `n' == 3{
 		local color1 "251 180 174"
 		local color2 "179 205 227"
@@ -819,7 +809,7 @@ else if "`theme'" == "Pastel1"{
 		local color9 "242 242 242"
 	}
 }
-else if "`theme'" == "Pastel2"{
+else if "`palette'" == "Pastel2"{
 	if `n' == 3{
 		local color1 "179 226 205"
 		local color2 "253 205 172"
@@ -866,7 +856,7 @@ else if "`theme'" == "Pastel2"{
 		local color8 "204 204 204"
 	}
 }
-else if "`theme'" == "PiYG"{
+else if "`palette'" == "PiYG"{
 	if `n' == 3{
 		local color1 "233 163 201"
 		local color2 "247 247 247"
@@ -949,7 +939,7 @@ else if "`theme'" == "PiYG"{
 		local color11 "039 100 025"
 	}
 }
-else if "`theme'" == "PRGn"{
+else if "`palette'" == "PRGn"{
 	if `n' == 3{
 		local color1 "175 141 195"
 		local color2 "247 247 247"
@@ -1032,7 +1022,7 @@ else if "`theme'" == "PRGn"{
 		local color11 "000 068 027"
 	}
 }
-else if "`theme'" == "PuBu"{
+else if "`palette'" == "PuBu"{
 	if `n' == 3{
 		local color1 "236 231 242"
 		local color2 "166 189 219"
@@ -1090,7 +1080,7 @@ else if "`theme'" == "PuBu"{
 		local color9 "002 056 088"
 	}
 }
-else if "`theme'" == "PuBuGn"{
+else if "`palette'" == "PuBuGn"{
 	if `n' == 3{
 		local color1 "236 226 240"
 		local color2 "166 189 219"
@@ -1148,7 +1138,7 @@ else if "`theme'" == "PuBuGn"{
 		local color9 "001 070 054"
 	}
 }
-else if "`theme'" == "PuOr"{
+else if "`palette'" == "PuOr"{
 	if `n' == 3{
 		local color1 "241 163 064"
 		local color2 "247 247 247"
@@ -1231,7 +1221,7 @@ else if "`theme'" == "PuOr"{
 		local color11 "045 000 075"
 	}
 }
-else if "`theme'" == "PuRd"{
+else if "`palette'" == "PuRd"{
 	if `n' == 3{
 		local color1 "231 225 239"
 		local color2 "201 148 199"
@@ -1289,7 +1279,7 @@ else if "`theme'" == "PuRd"{
 		local color9 "103 000 031"
 	}
 }
-else if "`theme'" == "Purples"{
+else if "`palette'" == "Purples"{
 	if `n' == 3{
 		local color1 "239 237 245"
 		local color2 "188 189 220"
@@ -1347,7 +1337,7 @@ else if "`theme'" == "Purples"{
 		local color9 "063 000 125"
 	}
 }
-else if "`theme'" == "RdBu"{
+else if "`palette'" == "RdBu"{
 	if `n' == 3{
 		local color1 "239 138 098"
 		local color2 "247 247 247"
@@ -1430,7 +1420,7 @@ else if "`theme'" == "RdBu"{
 		local color11 "005 048 097"
 	}
 }
-else if "`theme'" == "RdGy"{
+else if "`palette'" == "RdGy"{
 	if `n' == 3{
 		local color1 "239 138 098"
 		local color2 "255 255 255"
@@ -1513,7 +1503,7 @@ else if "`theme'" == "RdGy"{
 		local color11 "026 026 026"
 	}
 }
-else if "`theme'" == "RdPu"{
+else if "`palette'" == "RdPu"{
 	if `n' == 3{
 		local color1 "253 224 221"
 		local color2 "250 159 181"
@@ -1571,7 +1561,7 @@ else if "`theme'" == "RdPu"{
 		local color9 "073 000 106"
 	}
 }
-else if "`theme'" == "Reds"{
+else if "`palette'" == "Reds"{
 	if `n' == 3{
 		local color1 "254 224 210"
 		local color2 "252 146 114"
@@ -1629,7 +1619,7 @@ else if "`theme'" == "Reds"{
 		local color9 "103 000 013"
 	}
 }
-else if "`theme'" == "RdYlBu"{
+else if "`palette'" == "RdYlBu"{
 	if `n' == 3{
 		local color1 "252 141 089"
 		local color2 "255 255 191"
@@ -1712,7 +1702,7 @@ else if "`theme'" == "RdYlBu"{
 		local color11 "049 054 149"
 	}
 }
-else if "`theme'" == "RdYlGn"{
+else if "`palette'" == "RdYlGn"{
 	if `n' == 3{
 		local color1 "252 141 089"
 		local color2 "255 255 191"
@@ -1795,7 +1785,7 @@ else if "`theme'" == "RdYlGn"{
 		local color11 "000 104 055"
 	}
 }
-else if "`theme'" == "Set1"{
+else if "`palette'" == "Set1"{
 	if `n' == 3{
 		local color1 "228 026 028"
 		local color2 "055 126 184"
@@ -1853,7 +1843,7 @@ else if "`theme'" == "Set1"{
 		local color9 "153 153 153"
 	}
 }
-else if "`theme'" == "Set2"{
+else if "`palette'" == "Set2"{
 	if `n' == 3{
 		local color1 "102 194 165"
 		local color2 "252 141 098"
@@ -1900,7 +1890,7 @@ else if "`theme'" == "Set2"{
 		local color8 "179 179 179"
 	}
 }
-else if "`theme'" == "Set3"{
+else if "`palette'" == "Set3"{
 	if `n' == 3{
 		local color1 "141 211 199"
 		local color2 "255 255 179"
@@ -1997,7 +1987,7 @@ else if "`theme'" == "Set3"{
 		local color12 "255 237 111"
 	}
 }
-else if "`theme'" == "Spectral"{
+else if "`palette'" == "Spectral"{
 	if `n' == 3{
 		local color1 "252 141 089"
 		local color2 "255 255 191"
@@ -2080,7 +2070,7 @@ else if "`theme'" == "Spectral"{
 		local color11 "094 079 162"
 	}
 }
-else if "`theme'" == "YlGn"{
+else if "`palette'" == "YlGn"{
 	if `n' == 3{
 		local color1 "247 252 185"
 		local color2 "173 221 142"
@@ -2138,7 +2128,7 @@ else if "`theme'" == "YlGn"{
 		local color9 "000 069 041"
 	}
 }
-else if "`theme'" == "YlGnBu"{
+else if "`palette'" == "YlGnBu"{
 	if `n' == 3{
 		local color1 "237 248 177"
 		local color2 "127 205 187"
@@ -2196,7 +2186,7 @@ else if "`theme'" == "YlGnBu"{
 		local color9 "008 029 088"
 	}
 }
-else if "`theme'" == "YlOrBr"{
+else if "`palette'" == "YlOrBr"{
 	if `n' == 3{
 		local color1 "255 247 188"
 		local color2 "254 196 079"
@@ -2254,7 +2244,7 @@ else if "`theme'" == "YlOrBr"{
 		local color9 "102 037 006"
 	}
 }
-else if "`theme'" == "YlOrRd"{
+else if "`palette'" == "YlOrRd"{
 	if `n' == 3{
 		local color1 "255 237 160"
 		local color2 "254 178 076"
@@ -2313,11 +2303,11 @@ else if "`theme'" == "YlOrRd"{
 	}
 }
 else{
-	display as error `"The palette "`theme'" does not exist"'
+	display as error `"The palette "`palette'" does not exist"'
 	exit 4
 }
 if "`color1'"==""{
-	display as error `"The palette "`theme'" does not exist with `n' colors"' 
+	display as error `"The palette "`palette'" does not exist with `n' colors"' 
 	exit 4
 }
 
@@ -2350,70 +2340,5 @@ while `i'>0{
 end
 
 
-/***************************************************************************************************
-helpers
-***************************************************************************************************/
-program define hcltorgb, rclass
-	syntax [anything], hue(real) chroma(real) luma(real)
-	tempname h L U V u v X Y Z R G B
-
-
-	scalar `h' =  `hue' * `c(pi)' / 180
-	scalar `L' = `luma'
-	scalar `U' = `chroma' * cos(`h')
-	scalar `V' = `chroma' * sin(`h')
-
-	/* Step 2 : Convert to CIE-XYZ */
-
-	if (`L' <= 0 & `U' == 0 & `V' == 0) {
-		scalar `X' = 0
-		scalar `Y' = 0
-		scalar `Z' = 0
-	}
-	else {
-		if `L' > 7.999592 {
-			scalar `Y' =  100 * ((`L' + 16)/116)^3
-		}
-		else{
-			scalar `Y' =  100 * `L' / 903.3
-		}
-		scalar `u' = `U' / (13 * `L') + 0.1978398
-		scalar `v' = `V' / (13 * `L') + 0.4683363
-		scalar `X' =  9.0 * `Y' * `u' / (4 * `v')
-		scalar `Z' =  - `X' / 3 - 5 * `Y' + 3 * `Y' / `v'
-	}
-
-
-	/* Step 4 : CIE-XYZ to sRGB */
-
-	scalar `R' =  (3.240479 * `X' - 1.537150 * `Y' - 0.498535 * `Z') / 100
-	scalar `G' = (-0.969256 * `X' + 1.875992 * `Y' + 0.041556 * `Z') / 100
-	scalar `B' =  (0.055648 * `X' - 0.204043 * `Y' + 1.057311 * `Z') / 100
-
-	if (`R' > 0.00304){
-		scalar `R' = 1.055 * `R'^(1 / 2.4) - 0.055
-	}
-	else{
-		scalar `R' = 12.92 * `R'
-	}
-
-	if (`G' > 0.00304){
-		scalar `G' = 1.055 * `G'^(1 / 2.4) - 0.055
-	}
-	else{
-		scalar `G' = 12.92 * `G'
-	}
-
-	if (`B' > 0.00304){
-		scalar `B' = 1.055 * `B'^(1 / 2.4) - 0.055
-	}
-	else{
-		scalar `B' = 12.92 * `B'
-	}
-
-	return scalar r = min(max(0, int(255 * `R' + 0.5)), 255)
-	return scalar g = min(max(0, int(255 * `G' + 0.5)), 255)
-	return scalar b = min(max(0, int(255 * `B' + 0.5)), 255)
-end
 
 
