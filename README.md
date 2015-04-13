@@ -18,7 +18,7 @@ macros
             r(colors) : ""239 243 255" "189 215 231" "107 174 214" "033 113 181""
 ```
 
-One can use the returned macros in a graph command:
+Use the returned macros in any graph command:
 
 ```
 sysuse nlsw88.dta
