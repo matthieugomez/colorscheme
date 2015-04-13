@@ -59,13 +59,33 @@ macros
 Use the returned macros in any graph command:
 
 ```
-sysuse nlsw88.dta
-colorbrewer Set2, n(3) 
-twoway scatter wage tenure if race == 1, mcolor("`=r(color1)'")  || ///
-scatter wage tenure if race == 2, mcolor("`=r(color2)'")  || ///
-scatter wage tenure if race == 3, mcolor("`=r(color3)'") 
+sysuse nlsw88.dta, clear
+egen temp = xtile(tenure), by(race) n(10)
+collapse (mean) wage tenure, by(temp race)
+local script ""
+local label ""
+colorbrewer 3, palette(Set2)
+forvalues i = 1/3{
+local script `script' (scatter wage tenure if race == `i', mcolor("`=r(color`i')'")   msize(1.5) legend(label(`i' `"`: label (race) `i''"')))
+}
+twoway `script'
 ```
+![](img/graphset2.jpg)
 
+
+```
+sysuse nlsw88.dta, clear
+local script ""
+local label ""
+egen temp = xtile(tenure), by(industry) n(10)
+collapse (mean) wage tenure, by(temp industry)
+colorwheel 12
+forvalues i = 1/12{
+local script `script' (scatter wage tenure if industry == `i', mcolor("`=r(color`i')'")   msize(1.5) legend(label(`i' `"`: label (industry) `i''"')))
+}
+twoway `script'
+```
+![](img/graphggplot.jpg)
 
 
 
