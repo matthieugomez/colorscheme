@@ -88,6 +88,8 @@ twoway `script'
 ![](img/graphggplot.jpg)
 
 
+## Installation
+net install color , from(https://github.com/matthieugomez/stata-color/raw/master/)
 
 
 ## Copyright
@@ -95,3 +97,4 @@ This product includes color specifications and designs developed by Cynthia Brew
 
 ColorBrewer is Copyright (c) 2002 Cynthia Brewer, Mark Harrower, and The Pennsylvania State
 University. All rights reserved.
+
