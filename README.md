@@ -89,7 +89,10 @@ twoway `script'
 
 
 ## Installation
+
+```
 net install color , from(https://github.com/matthieugomez/stata-color/raw/master/)
+```
 
 
 ## Copyright
