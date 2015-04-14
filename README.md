@@ -4,6 +4,8 @@
 
 ## Colorbrewer
 
+
+#### Syntax
 The function `colorbrewer` returns the RGB colors corresponding to a given [colorbrewer](http://colorbrewer.org/) palette:
 
 ```
@@ -17,6 +19,7 @@ macros
             r(colors) : ""239 243 255" "189 215 231" "107 174 214" "033 113 181""
 ```
 
+#### Palettes
 There are 3 types of palettes, sequential, diverging, and qualitative.
 
 - Sequential palettes are suited to ordered data that progress from low to high. Lightness steps
@@ -38,23 +41,9 @@ to representing nominal or categorical data.
 
 	The qualitative palettes (with their associated maximum number of colors) are: Accent 8 Dark2 8 Paired 12 Pastel1 9 Pastel2 8 Set1 9 Set2 8 Set3 12
 
-## Colorwheel
-
-The function `colorwheel` returns the RGB colors corresponding to [ggplot colors](img/ggplot.jpg)
 
 
-```
-. colorwheel 3
-. return list
-macros
-			r(color1) : "248 118 109"
-			r(color2) : "0 186 56"
-			r(color3) : "97 156 255"
-			r(colors) : ""248 118 109" "0 186 56" "97 156 255""
-
-```
-
-## Usage
+#### Example
 
 Use the returned macros in any graph command:
 
@@ -72,6 +61,28 @@ twoway `script'
 ```
 ![](img/graphset2.jpg)
 
+
+
+
+
+## Colorwheel
+
+#### Syntax
+The function `colorwheel` returns the RGB colors corresponding to [ggplot colors](img/ggplot.jpg)
+
+
+```
+. colorwheel 3
+. return list
+macros
+			r(color1) : "248 118 109"
+			r(color2) : "0 186 56"
+			r(color3) : "97 156 255"
+			r(colors) : ""248 118 109" "0 186 56" "97 156 255""
+
+```
+
+#### Example
 
 ```
 sysuse nlsw88.dta, clear
