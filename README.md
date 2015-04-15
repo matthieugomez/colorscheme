@@ -65,7 +65,7 @@ colorscheme 5, palette(`palette')
 local i = 0
 foreach v of varlist p?? {
 local ++i
-local script `script' (line `v' grade,  color("`=r(color`i')'"))
+local script `script' (scatter `v' grade,  connect(l) lcolor("`=r(color`i')'") mcolor("`=r(color`i')'"))
 }
 di `"`script'"'
 twoway `script', plotregion(fcolor(white)) graphregion(fcolor(white))
