@@ -48,10 +48,10 @@ The package also includes two supplementary palettes:
 
 - [paultol](http://www.sron.nl/~pault/colourschemes.pdf): qualitative palette up to 12 colors
 
-- [default ggplot palette](http://docs.ggplot2.org/0.9.3.1/scale_hue.html) : colour scale with evenly spaced hues (no limit on color number)
+- [default ggplot palette](http://docs.ggplot2.org/0.9.3.1/scale_hue.html) : colour scale with evenly spaced hues. 
 
 ### Usage 
-You can use returned macro `r(color1)', `r(color2)', ... in any graph.
+Use the returned macro `r(color1)`, `r(color2)`, ... to plot a graph in a certain theme:
 
 
 ```
@@ -104,7 +104,7 @@ byindustry ggplot
 ## Installation
 
 ```
-net install colorscheme , from(https://github.com/matthieugomez/stata-color/raw/master/)
+net install colorscheme, from(https://github.com/matthieugomez/stata-colorscheme/raw/master/)
 ```
 
 
