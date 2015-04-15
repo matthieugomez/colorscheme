@@ -17,27 +17,27 @@ if "`palette'" == "paultol"{
 	}
 	else if `n' == 3{
 		local color1 "68 119 170"
-		local color2 "221 204 1190"
+		local color2 "221 204 119"
 		local color3 "204 102 119"
 	}
 	else if `n' == 4{
 		local color1 "68 119 170"
 		local color2 "17 119 51"
-		local color3 "221 204 1190"
+		local color3 "221 204 119"
 		local color4 "204 102 119"
 	}
 	else if `n' == 5{
 		local color1 "51 34 136"
 		local color2 "136 204 23"
 		local color3 "17 119 51"
-		local color4 "221 204 1190"
+		local color4 "221 204 119"
 		local color5 "204 102 119"
 	}
 	else if `n' == 6{
 		local color1 "51 34 136"
 		local color2 "136 204 23"
 		local color3 "17 119 51"
-		local color4 "221 204 1190"
+		local color4 "221 204 119"
 		local color5 "204 102 119"
 		local color6 "170 68 153"
 	}
@@ -46,7 +46,7 @@ if "`palette'" == "paultol"{
 		local color2 "136 204 23"
 		local color3 "68 170 153"
 		local color4 "17 119 51"
-		local color5 "221 204 1190"
+		local color5 "221 204 119"
 		local color6 "204 102 119"
 		local color7 "170 68 153"
 	}
@@ -56,7 +56,7 @@ if "`palette'" == "paultol"{
 		local color3 "68 170 153"
 		local color4 "17 119 51"
 		local color5 "153 153 51"
-		local color6 "221 204 1190"
+		local color6 "221 204 119"
 		local color7 "204 102 119"
 		local color8 "170 68 153"
 	}
@@ -66,7 +66,7 @@ if "`palette'" == "paultol"{
 		local color3 "68 170 153"
 		local color4 "17 119 51"
 		local color5 "153 153 51"
-		local color6 "221 204 1190"
+		local color6 "221 204 119"
 		local color7 "204 102 119"
 		local color8 "136 34 85"
 		local color9 "170 68 153"
@@ -77,7 +77,7 @@ if "`palette'" == "paultol"{
 		local color3 "68 170 153"
 		local color4 "17 119 51"
 		local color5 "153 153 51"
-		local color6 "221 204 1190"
+		local color6 "221 204 119"
 		local color7 "102 17 0"
 		local color8 "204 102 119"
 		local color9 "136 34 85"
@@ -90,7 +90,7 @@ if "`palette'" == "paultol"{
 		local color4 "68 170 153"
 		local color5 "17 119 51"
 		local color6 "153 153 51"
-		local color7 "221 204 1190"
+		local color7 "221 204 119"
 		local color8 "102 17 0"
 		local color9 "204 102 119"
 		local color10 "136 34 85"
@@ -103,7 +103,7 @@ if "`palette'" == "paultol"{
 		local color4 "68 170 153"
 		local color5 "17 119 51"
 		local color6 "153 153 51"
-		local color7 "221 204 1190"
+		local color7 "221 204 119"
 		local color8 "102 17 0"
 		local color9 "204 102 119"
 		local color10 "170 68 102"
