@@ -54,36 +54,6 @@ The command includes two supplementary palettes:
 
 Use the returned macro `r(color1)`, `r(color2)`, ... to plot a graph in a certain theme:
 
-#### Sequential Palettes
-
-```
-program define bygrade
-syntax anything(name = palette)
-sysuse nlsw88.dta, clear
-collapse (p10) p10 = wage (p25) p25 = wage (p50) p50 = wage (p75) p75 = wage (p90) p90 = wage, by(grade)
-colorscheme 5, palette(`palette')
-local i = 0
-foreach v of varlist p?? {
-local ++i
-local script `script' (scatter `v' grade,  connect(l) lcolor("`=r(color`i')'") mcolor("`=r(color`i')'"))
-}
-di `"`script'"'
-twoway `script', plotregion(fcolor(white)) graphregion(fcolor(white))
-end
-```
-
-
-```
-bygrade GnBu
-```
-![](img/gnbu.jpg)
-
-
-```
-bygrade YlOrRd
-```
-![](img/ylorrd.jpg)
-
 
 
 #### Qualitative Palettes
@@ -93,12 +63,12 @@ program define byindustry
 syntax anything(name = palette)
 sysuse nlsw88.dta, clear
 egen xtile = xtile(tenure), by(industry) n(10)
-collapse (mean) wage tenure, by(xtile industry)
+collapse (mean) wage tenure (count) count = wage, by(xtile industry)
+drop if count ==1
 colorscheme 12, palette(`palette')
 forvalues i = 1/12{
 local script `script' (scatter wage tenure if industry == `i', mcolor("`=r(color`i')'")   msize(1.5)  xscale(log) legend(label(`i' `"`: label (industry) `i''"')))
 }
-di `"`script'"'
 twoway `script', plotregion(fcolor(white)) graphregion(fcolor(white))
 end
 ```
@@ -127,6 +97,36 @@ byindustry paultol
 byindustry ggplot
 ```
 ![](img/ggplot.jpg)
+
+
+#### Sequential Palettes
+
+```
+program define bygrade
+syntax anything(name = palette)
+sysuse nlsw88.dta, clear
+collapse (p10) p10 = wage (p25) p25 = wage (p50) p50 = wage (p75) p75 = wage (p90) p90 = wage, by(grade)
+colorscheme 5, palette(`palette')
+local i = 0
+foreach v of varlist p?? {
+local ++i
+local script `script' (scatter `v' grade,  connect(l) lcolor("`=r(color`i')'") mcolor("`=r(color`i')'"))
+}
+twoway `script', plotregion(fcolor(white)) graphregion(fcolor(white))
+end
+```
+
+
+```
+bygrade GnBu
+```
+![](img/gnbu.jpg)
+
+
+```
+bygrade YlOrRd
+```
+![](img/ylorrd.jpg)
 
 
 
