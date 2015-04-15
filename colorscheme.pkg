@@ -1,15 +1,14 @@
 v 3
 
-d color. Work with color palettes
+d colorscheme. Work with color palettes
 d
 d Author: Matthieu Gomez
 d
 d
-d KW: colorbrewer colorwheel
+d KW: colorscheme ggplot colorbrewer
 d
 d Requires: Stata version 11.2
 d
 d Distribution-Date: 20150330
 d
-f colorbrewer.ado
-f colorwheel.ado
+f colorscheme.ado

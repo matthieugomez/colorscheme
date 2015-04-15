@@ -1,9 +1,4 @@
-/***************************************************************************************************
-ColorBrewer is Copyright (c) 2002 Cynthia Brewer, Mark Harrower, and The Pennsylvania State
-University. All rights reserved.
-***************************************************************************************************/
-
-program colorbrewer, rclass
+program colorscheme, rclass
 
 syntax anything(name = n), palette(string) [solid(real 1)]
 
@@ -11,9 +6,129 @@ syntax anything(name = n), palette(string) [solid(real 1)]
 /***************************************************************************************************
 list of themes and colors
 ***************************************************************************************************/
+* http://www.sron.nl/~pault/colourschemes.pdf
+if "`palette'" == "paultol"{
+	if `n' == 1{
+		local color1 "68 119 170"
+	}
+	else if `n' == 2{
+		local color1 "68 119 170"
+		local color2 "204 102 119"
+	}
+	else if `n' == 3{
+		local color1 "68 119 170"
+		local color2 "221 204 1190"
+		local color3 "204 102 119"
+	}
+	else if `n' == 4{
+		local color1 "68 119 170"
+		local color2 "17 119 51"
+		local color3 "221 204 1190"
+		local color4 "204 102 119"
+	}
+	else if `n' == 5{
+		local color1 "51 34 136"
+		local color2 "136 204 23"
+		local color3 "17 119 51"
+		local color4 "221 204 1190"
+		local color5 "204 102 119"
+	}
+	else if `n' == 6{
+		local color1 "51 34 136"
+		local color2 "136 204 23"
+		local color3 "17 119 51"
+		local color4 "221 204 1190"
+		local color5 "204 102 119"
+		local color6 "170 68 153"
+	}
+	else if `n' == 7{
+		local color1 "51 34 136"
+		local color2 "136 204 23"
+		local color3 "68 170 153"
+		local color4 "17 119 51"
+		local color5 "221 204 1190"
+		local color6 "204 102 119"
+		local color7 "170 68 153"
+	}
+	else if `n' == 8{
+		local color1 "51 34 136"
+		local color2 "136 204 23"
+		local color3 "68 170 153"
+		local color4 "17 119 51"
+		local color5 "153 153 51"
+		local color6 "221 204 1190"
+		local color7 "204 102 119"
+		local color8 "170 68 153"
+	}
+	else if `n' == 9{
+		local color1 "51 34 136"
+		local color2 "136 204 23"
+		local color3 "68 170 153"
+		local color4 "17 119 51"
+		local color5 "153 153 51"
+		local color6 "221 204 1190"
+		local color7 "204 102 119"
+		local color8 "136 34 85"
+		local color9 "170 68 153"
+	}
+	else if `n' == 10{
+		local color1 "51 34 136"
+		local color2 "136 204 23"
+		local color3 "68 170 153"
+		local color4 "17 119 51"
+		local color5 "153 153 51"
+		local color6 "221 204 1190"
+		local color7 "102 17 0"
+		local color8 "204 102 119"
+		local color9 "136 34 85"
+		local color10 "170 68 153"
+	}
+	else if `n' == 11{
+		local color1 "51 34 136"
+		local color2 "102 153 204"
+		local color3 "136 204 23"
+		local color4 "68 170 153"
+		local color5 "17 119 51"
+		local color6 "153 153 51"
+		local color7 "221 204 1190"
+		local color8 "102 17 0"
+		local color9 "204 102 119"
+		local color10 "136 34 85"
+		local color11 "170 68 153"
+	}
+	else if `n' == 12{
+		local color1 "51 34 136"
+		local color2 "102 153 204"
+		local color3 "136 204 23"
+		local color4 "68 170 153"
+		local color5 "17 119 51"
+		local color6 "153 153 51"
+		local color7 "221 204 1190"
+		local color8 "102 17 0"
+		local color9 "204 102 119"
+		local color10 "170 68 102"
+		local color11 "136 34 85"
+		local color12 "170 68 153"
+	}
+}
 
-/* Color Brewer */
-if "`palette'" == "Accent"{
+/* ggplot */
+else if "`palette'" == "ggplot"{
+	local solid 1
+	local chroma 100
+	local luma 65
+	local hstart 15
+	local hend 375
+	forvalues i = 1/`n'{
+		local hue = `hstart' + (`i'-1) * (`hend'-`hstart')/ `n'
+		hcltorgb, hue(`hue') chroma(100) luma(65) 
+		local color`i' `=r(r)' `=r(g)' `=r(b)'
+	}
+}
+
+/* Color Brewer. ColorBrewer is Copyright (c) 2002 Cynthia Brewer, Mark Harrower, and The Pennsylvania State
+University. All rights reserved. */
+else if "`palette'" == "Accent"{
 	if `n' == 3{
 		local color1 "127 201 127"
 		local color2 "190 174 212"
@@ -2340,5 +2455,74 @@ while `i'>0{
 end
 
 
+/***************************************************************************************************
+helper
+***************************************************************************************************/
 
+
+/***************************************************************************************************
+helpers
+***************************************************************************************************/
+program define hcltorgb, rclass
+	syntax [anything], hue(real) chroma(real) luma(real)
+	tempname h L U V u v X Y Z R G B
+
+
+	scalar `h' =  `hue' * `c(pi)' / 180
+	scalar `L' = `luma'
+	scalar `U' = `chroma' * cos(`h')
+	scalar `V' = `chroma' * sin(`h')
+
+	/* Step 2 : Convert to CIE-XYZ */
+
+	if (`L' <= 0 & `U' == 0 & `V' == 0) {
+		scalar `X' = 0
+		scalar `Y' = 0
+		scalar `Z' = 0
+	}
+	else {
+		if `L' > 7.999592 {
+			scalar `Y' =  100 * ((`L' + 16)/116)^3
+		}
+		else{
+			scalar `Y' =  100 * `L' / 903.3
+		}
+		scalar `u' = `U' / (13 * `L') + 0.1978398
+		scalar `v' = `V' / (13 * `L') + 0.4683363
+		scalar `X' =  9.0 * `Y' * `u' / (4 * `v')
+		scalar `Z' =  - `X' / 3 - 5 * `Y' + 3 * `Y' / `v'
+	}
+
+
+	/* Step 4 : CIE-XYZ to sRGB */
+
+	scalar `R' =  (3.240479 * `X' - 1.537150 * `Y' - 0.498535 * `Z') / 100
+	scalar `G' = (-0.969256 * `X' + 1.875992 * `Y' + 0.041556 * `Z') / 100
+	scalar `B' =  (0.055648 * `X' - 0.204043 * `Y' + 1.057311 * `Z') / 100
+
+	if (`R' > 0.00304){
+		scalar `R' = 1.055 * `R'^(1 / 2.4) - 0.055
+	}
+	else{
+		scalar `R' = 12.92 * `R'
+	}
+
+	if (`G' > 0.00304){
+		scalar `G' = 1.055 * `G'^(1 / 2.4) - 0.055
+	}
+	else{
+		scalar `G' = 12.92 * `G'
+	}
+
+	if (`B' > 0.00304){
+		scalar `B' = 1.055 * `B'^(1 / 2.4) - 0.055
+	}
+	else{
+		scalar `B' = 12.92 * `B'
+	}
+
+	return scalar r = min(max(0, int(255 * `R' + 0.5)), 255)
+	return scalar g = min(max(0, int(255 * `G' + 0.5)), 255)
+	return scalar b = min(max(0, int(255 * `B' + 0.5)), 255)
+end
 
