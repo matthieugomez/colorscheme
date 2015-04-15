@@ -44,22 +44,54 @@ to representing nominal or categorical data.
 The qualitative palettes (with their associated maximum number of colors) are: Accent (8) Dark2 (8) Paired (12) Pastel1 (9) Pastel2 (8) Set1 (9) Set2 (8) Set3 (12)
 
 ### Other palettes
-The package also includes two supplementary palettes:
+The command includes two supplementary palettes:
 
 - [paultol](http://www.sron.nl/~pault/colourschemes.pdf): qualitative palette up to 12 colors
 
 - [default ggplot palette](http://docs.ggplot2.org/0.9.3.1/scale_hue.html) : colour scale with evenly spaced hues. 
 
 ### Usage 
+
 Use the returned macro `r(color1)`, `r(color2)`, ... to plot a graph in a certain theme:
+
+#### Sequential Palettes
+
+```
+program define bygrade
+syntax anything(name = palette)
+sysuse nlsw88.dta, clear
+collapse (p10) p10 = wage (p25) p25 = wage (p50) p50 = wage (p75) p75 = wage (p90) p90 = wage, by(grade)
+colorscheme 5, palette(`palette')
+local i = 0
+foreach v of varlist p?? {
+local ++i
+local script `script' (line `v' grade,  color("`=r(color`i')'"))
+}
+di `"`script'"'
+twoway `script', plotregion(fcolor(white)) graphregion(fcolor(white))
+end
+```
 
 
 ```
+bygrade GnBu
+```
+![](img/gnbu.jpg)
+
+
+```
+bygrade YlOrRd
+```
+![](img/ylorrd.jpg)
+
+
+
+#### Qualitative Palettes
+
+```
 program define byindustry
-sysuse nlsw88.dta, clear
 syntax anything(name = palette)
-local script ""
-local label ""
+sysuse nlsw88.dta, clear
 egen xtile = xtile(tenure), by(industry) n(10)
 collapse (mean) wage tenure, by(xtile industry)
 colorscheme 12, palette(`palette')
@@ -67,7 +99,7 @@ forvalues i = 1/12{
 local script `script' (scatter wage tenure if industry == `i', mcolor("`=r(color`i')'")   msize(1.5)  xscale(log) legend(label(`i' `"`: label (industry) `i''"')))
 }
 di `"`script'"'
-twoway `script'
+twoway `script', plotregion(fcolor(white)) graphregion(fcolor(white))
 end
 ```
 
@@ -95,8 +127,6 @@ byindustry paultol
 byindustry ggplot
 ```
 ![](img/ggplot.jpg)
-
-
 
 
 
