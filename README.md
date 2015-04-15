@@ -1,7 +1,7 @@
 
-The command `colorscheme` return set of RGB colors for plotting graphs
+The command `colorscheme` returns a set of RGB colors corresponding to precified themes.
 
-The syntax is
+The syntax requires to specify the number of colors and the palette name: 
 
 ```
 . colorscheme 4, palette(Blues)
@@ -14,7 +14,7 @@ macros
             r(colors) : ""239 243 255" "189 215 231" "107 174 214" "033 113 181""
 ```
 
-### Palettes
+### Colorbrewer palettes
 
 There are 3 types of palettes, sequential, diverging, and qualitative.
 
@@ -25,7 +25,7 @@ Sequential palettes are suited to ordered data that progress from low to high. L
 dominate the look of these schemes, with light colors for low data values to dark colors for high
 data values. All the sequential palettes are available in variations from 3 different values up to 9 different values.
 
-	The sequential palettes names are: Blues BuGn BuPu GnBu Greens Greys Oranges OrRd PuBu PuBuGn PuRd Purples RdPu Reds YlGn YlGnBu YlOrBr YlOrRd
+The sequential palettes names are: Blues BuGn BuPu GnBu Greens Greys Oranges OrRd PuBu PuBuGn PuRd Purples RdPu Reds YlGn YlGnBu YlOrBr YlOrRd
 
 #### Diverging Palettes
 Diverging palettes put equal emphasis on mid-range critical values and extremes at both ends
@@ -33,7 +33,7 @@ of the data range. The critical class or break in the middle of the legend is em
 colors and low and high extremes are emphasized with dark colors that have contrasting hues. All the diverging palettes are available in variations from 3 different values up to 11 different values.
 
 
-	The diverging palettes are:	BrBG PiYG PRGn PuOr RdBu RdGy RdYlBu RdYlGn Spectral
+The diverging palettes are:	BrBG PiYG PRGn PuOr RdBu RdGy RdYlBu RdYlGn Spectral
 
 
 #### Qualitative Palettes
@@ -43,17 +43,17 @@ to representing nominal or categorical data.
 
 The qualitative palettes (with their associated maximum number of colors) are: Accent (8) Dark2 (8) Paired (12) Pastel1 (9) Pastel2 (8) Set1 (9) Set2 (8) Set3 (12)
 
-
+### Other palettes
 The package also includes two supplementary palettes:
+
+- [paultol](http://www.sron.nl/~pault/colourschemes.pdf): qualitative palette up to 12 colors
+
 - [default ggplot palette](http://docs.ggplot2.org/0.9.3.1/scale_hue.html) : colour scale with evenly spaced hues (no limit on color number)
 
-- [paultol](http://www.sron.nl/~pault/colourschemes.pdf): qualitative palette with 12 colors
-![](img/graphpaultol.jpg)
-
-
 ### Usage 
+You can use returned macro `r(color1)', `r(color2)', ... in any graph.
 
-I first define a function that takes a palette name as an argument and return a scatterplot by industry
+
 ```
 program define byindustry
 sysuse nlsw88.dta, clear
