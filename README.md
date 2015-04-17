@@ -59,7 +59,7 @@ The command includes two supplementary palettes:
 colorscheme 9, palette(Blues) display
 ```
 
-![](img/display)
+![](img/display.jpg)
 
 
 - use the returned macro `r(color1)`, `r(color2)`, ... to  use the colors in a graph p
@@ -74,7 +74,7 @@ twoway ///
 (scatter wage grade if race == 3, mcolor("`=r(color3)'")  msize(1.5)   legend(label(3 `"`: label (race) 3'"'))) ///
 , plotregion(fcolor(white)) graphregion(fcolor(white))
 ```
-![](img/paired.jpg)
+![](img/set2.jpg)
 
 ## Installation
 
