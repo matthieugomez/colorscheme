@@ -6,12 +6,12 @@ syntax anything(name = n), palette(string) [solid(real 1) display]
 /***************************************************************************************************
 list of themes and colors
 ***************************************************************************************************/
-if "`palette'" == "stata"{
+if "`palette'" == "Stata"{
 	local color1 "26 71 111"
 	local color2 "144 53 59"
 	local color3 "85 117 47"
 	local color4 "227 126 0"
-	local color5 "110 142 1421"
+	local color5 "110 142 132"
 	local color6 "193 5 52"
 	local color7 "147 141 210"
 	local color8 "202 194 126"
