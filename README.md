@@ -62,16 +62,16 @@ colorscheme 9, palette(Blues) display
 ![](img/display.jpg)
 
 
-- use the returned macro `r(color1)`, `r(color2)`, ... to  use the colors in a graph p
+- use the returned macro `r(color1)`, `r(color2)`, ... in a plot
 
 ```
 sysuse nlsw88.dta, clear
 collapse (mean) wage, by(grade race)
 colorscheme 3, palette(Set2)
 twoway ///
-(scatter wage grade if race == 1, mcolor("`=r(color1)'")  msize(1.5)   legend(label(1 `"`: label (race) 1'"'))) ///
-(scatter wage grade if race == 2, mcolor("`=r(color2)'")  msize(1.5)   legend(label(2 `"`: label (race) 2'"'))) ///
-(scatter wage grade if race == 3, mcolor("`=r(color3)'")  msize(1.5)   legend(label(3 `"`: label (race) 3'"'))) ///
+(scatter wage grade if race == 1, mcolor("`=r(color1)'") legend(label(1 `"`: label (race) 1'"'))) msize(1.5) ///
+(scatter wage grade if race == 2, mcolor("`=r(color2)'") legend(label(2 `"`: label (race) 2'"'))) msize(1.5) ///
+(scatter wage grade if race == 3, mcolor("`=r(color3)'") legend(label(3 `"`: label (race) 3'"'))) msize(1.5) ///
 , plotregion(fcolor(white)) graphregion(fcolor(white))
 ```
 ![](img/set2.jpg)
