@@ -52,23 +52,27 @@ The command includes two supplementary palettes:
 
 ### Usage 
 
-Use the returned macro `r(color1)`, `r(color2)`, ... to plot a graph in a certain theme:
+
+- Use the option `display` to plot the palette
+
+```
+colorscheme 9, palette(Blues) display
+```
+
+![](img/display)
 
 
-
-#### Qualitative Palettes
+- use the returned macro `r(color1)`, `r(color2)`, ... to  use the colors in a graph p
 
 ```
 sysuse nlsw88.dta, clear
-egen xtile = xtile(tenure), by(industry) n(10)
-collapse (mean) wage tenure (count) count = wage, by(xtile industry)
-drop if count ==1
-colorscheme 12, palette(Paired)
-forvalues i = 1/12{
-local script `script' (scatter wage tenure if industry == `i', mcolor("`=r(color`i')'")   msize(1.5)  xscale(log) legend(label(`i' `"`: label (industry) `i''"')))
-}
-twoway `script', plotregion(fcolor(white)) graphregion(fcolor(white))
-end
+collapse (mean) wage, by(grade race)
+colorscheme 3, palette(Set2)
+twoway ///
+(scatter wage grade if race == 1, mcolor("`=r(color1)'")  msize(1.5)   legend(label(1 `"`: label (race) 1'"'))) ///
+(scatter wage grade if race == 2, mcolor("`=r(color2)'")  msize(1.5)   legend(label(2 `"`: label (race) 2'"'))) ///
+(scatter wage grade if race == 3, mcolor("`=r(color3)'")  msize(1.5)   legend(label(3 `"`: label (race) 3'"'))) ///
+, plotregion(fcolor(white)) graphregion(fcolor(white))
 ```
 ![](img/paired.jpg)
 

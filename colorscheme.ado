@@ -1,13 +1,27 @@
 program colorscheme, rclass
 
-syntax anything(name = n), palette(string) [solid(real 1)]
+syntax anything(name = n), palette(string) [solid(real 1) display]
 
 
 /***************************************************************************************************
 list of themes and colors
 ***************************************************************************************************/
+if "`palette'" == "stata"{
+	local color1 "26 71 111"
+	local color2 "144 53 59"
+	local color3 "85 117 47"
+	local color4 "227 126 0"
+	local color5 "110 142 1421"
+	local color6 "193 5 52"
+	local color7 "147 141 210"
+	local color8 "202 194 126"
+	local color9 "160 82 45"
+	local color10 "123 146 168"
+	local color11 "45 109 102"
+	local color12 "156 136 171"
+}
 * http://www.sron.nl/~pault/colourschemes.pdf
-if "`palette'" == "paultol"{
+else if "`palette'" == "paultol"{
 	if `n' == 1{
 		local color1 "68 119 170"
 	}
@@ -28,14 +42,14 @@ if "`palette'" == "paultol"{
 	}
 	else if `n' == 5{
 		local color1 "51 34 136"
-		local color2 "136 204 23"
+		local color2 "136 204 238"
 		local color3 "17 119 51"
 		local color4 "221 204 119"
 		local color5 "204 102 119"
 	}
 	else if `n' == 6{
 		local color1 "51 34 136"
-		local color2 "136 204 23"
+		local color2 "136 204 238"
 		local color3 "17 119 51"
 		local color4 "221 204 119"
 		local color5 "204 102 119"
@@ -43,7 +57,7 @@ if "`palette'" == "paultol"{
 	}
 	else if `n' == 7{
 		local color1 "51 34 136"
-		local color2 "136 204 23"
+		local color2 "136 204 238"
 		local color3 "68 170 153"
 		local color4 "17 119 51"
 		local color5 "221 204 119"
@@ -52,7 +66,7 @@ if "`palette'" == "paultol"{
 	}
 	else if `n' == 8{
 		local color1 "51 34 136"
-		local color2 "136 204 23"
+		local color2 "136 204 238"
 		local color3 "68 170 153"
 		local color4 "17 119 51"
 		local color5 "153 153 51"
@@ -62,7 +76,7 @@ if "`palette'" == "paultol"{
 	}
 	else if `n' == 9{
 		local color1 "51 34 136"
-		local color2 "136 204 23"
+		local color2 "136 204 238"
 		local color3 "68 170 153"
 		local color4 "17 119 51"
 		local color5 "153 153 51"
@@ -73,7 +87,7 @@ if "`palette'" == "paultol"{
 	}
 	else if `n' == 10{
 		local color1 "51 34 136"
-		local color2 "136 204 23"
+		local color2 "136 204 238"
 		local color3 "68 170 153"
 		local color4 "17 119 51"
 		local color5 "153 153 51"
@@ -86,7 +100,7 @@ if "`palette'" == "paultol"{
 	else if `n' == 11{
 		local color1 "51 34 136"
 		local color2 "102 153 204"
-		local color3 "136 204 23"
+		local color3 "136 204 238"
 		local color4 "68 170 153"
 		local color5 "17 119 51"
 		local color6 "153 153 51"
@@ -99,7 +113,7 @@ if "`palette'" == "paultol"{
 	else if `n' == 12{
 		local color1 "51 34 136"
 		local color2 "102 153 204"
-		local color3 "136 204 23"
+		local color3 "136 204 238"
 		local color4 "68 170 153"
 		local color5 "17 119 51"
 		local color6 "153 153 51"
@@ -1959,6 +1973,14 @@ else if "`palette'" == "Set1"{
 	}
 }
 else if "`palette'" == "Set2"{
+	* add some
+	if `n' == 1{
+		local color1 "102 194 165"
+	}
+	else if `n' == 2{
+		local color1 "102 194 165"
+		local color2 "252 141 098"
+	}
 	if `n' == 3{
 		local color1 "102 194 165"
 		local color2 "252 141 098"
@@ -2451,6 +2473,21 @@ while `i'>0{
 	return local color`i' `color`i''`brightness'
 	local i = `i' - 1
 }
+
+
+if "`display'" ~= ""{   
+	forvalues i = 1/`n'{
+		local cmd`i' ///
+		scatteri `=`n'+1-`i'' 0 `" `i' : "`color`i''`brightness'""', ///
+		ms(S) mcolor(`"`color`i''`brightness'"') mlabcolor(black) msize(6 6) mlcolor(black) ///
+		 mlabsize(small)
+		local cmd "`cmd' (`cmd`i'')"
+	}
+
+	quietly twoway `cmd',  yscale(r(-0.1 `=`n'+1')) xscale(r(-0.1 0.2)) xlabel(none) ylab(none) ytitle("") xtitle("")  legend(nodraw) graphregion(margin(zero) fcolor(white) lcolor(white)) plotregion(lcolor(white))
+}
+
+
 
 end
 
