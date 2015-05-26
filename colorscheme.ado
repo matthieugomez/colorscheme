@@ -2462,7 +2462,7 @@ while `i' <= `n'{
 		local colors `""`color`i''`brightness'""'
 	}
 	else{
-		local colors `"`colors' "`color`i''`brightness'""'
+		local colors `colors' "`color`i''`brightness'"
 	}
 
 	local i = `i'+1
