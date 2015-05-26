@@ -1,6 +1,6 @@
 program colorscheme, rclass
 
-syntax anything(name = n), palette(string) [solid(real 1) display]
+syntax anything(name = n), Palette(string) [solid(real 1) display]
 
 
 /***************************************************************************************************
