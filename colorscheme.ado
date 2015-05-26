@@ -2456,16 +2456,13 @@ if `solid' ~= 1{
 	local brightness *`solid'
 } 
 
-local i = 1
-while `i' <= `n'{
+forval i = 1/`n'{
 	if `i' == 1{
 		local colors `""`color`i''`brightness'""'
 	}
 	else{
-		local colors `colors' "`color`i''`brightness'"
+		local colors `"`colors' "`color`i''`brightness'" "'
 	}
-
-	local i = `i'+1
 }
 return local colors `"`colors'"'
 local i = `n'
