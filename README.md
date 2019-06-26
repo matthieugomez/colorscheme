@@ -79,7 +79,7 @@ twoway ///
 ## Installation
 
 ```
-net install colorscheme, from(https://github.com/matthieugomez/stata-colorscheme/raw/master/)
+net install colorscheme, from("https://raw.githubusercontent.com/matthieugomez/colorscheme.ado/master/")
 ```
 
 If you have a version of Stata < 13, you need to install it manually
